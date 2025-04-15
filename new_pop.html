@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Auto Scrolling Carousel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeFlix - Netflix-style Anime Streaming</title>
+    <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="animec_card.css">
+    <!-- Tailwind CSS with fallback -->
+    
+    <script src="https://cdn.tailwindcss.com" onerror="loadFallbackStyles()"></script>
+    <!-- Font Awesome with fallback -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts with fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style rel ="stylesheet" href= "carousel.css">   </style>
+    <script  defer src = "carousel.js"> </script>
+    <style rel ="stylesheet" href= "animec_card.css">   </style>
+    <script  defer src = "anime_card.js"> </script>
+</head>
+<body>
+    <!-- Netflix-style Header -->
+    <section>
+        <header class="fixed top-0 w-full z-50 transition-all duration-500">
+            <div class="flex items-center justify-between px-12 py-4">
+                <div class="flex items-center">
+                    <h1 class="text-red-600 font-bold text-4xl mr-10">ANIMEFLEX</h1>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="index.html" class="hover:text-gray-300">Home</a>
+                        <a href="#" class="hover:text-gray-300 ">TV Shows</a>
+                        <a href="#" class="hover:text-gray-300">Movies</a>
+                        <button class="btn new-popular-btn" onclick="scrollToSection()">New & Popular</button>
+                        <a href="#" class="hover:text-gray-300">My List</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search" class="bg-black bg-opacity-50 text-white px-4 py-1 rounded outline-white">
+                        <i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
+                    </div>
+                    <div class="w-8 h-8 rounded bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+    <section class=" con">
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <img src="images/W_B.1.jpg" alt="Attack on Titan">
+                <img src="images/MHA.1.jpg" alt="Naruto">
+                <img src="images/S_L.1.jpg" alt="One Piece">
+                <img src="images/One_piece.1.png" alt="Attack on Titan">
+                <img src="images/KB.1.jpg" alt="Naruto">
+                <img src="images/DN.1.jpg" alt="One Piece">
+                <img src="images/DBZ.1.jpg" alt="Attack on Titan">
+                <img src="images/Bleach.1.jpg" alt="Naruto">
+                <img src="images/B_C.1.jpg" alt="One Piece">                
+            </div>
+            <div class="buttons">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="hero-content" id="hero-content">
+                <div class = "hero-content.1">
+                    <h2 id="anime-title">Attack on Titan</h2>
+                    <p id="anime-desc">As Eren and his friends fight to survive against the Titans, shocking revelations about their world come to light.</p>
+                </div>
+                <div>
+                    <div class="hero-buttons">
+                        <button class="play-button" onclick="playVideo()">▶ Play</button>
+                        <button class="info-button">ℹ More Info</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="video-container" id="video-container">
+            <span class="close-video" onclick="closeVideo()">✖</span>
+            <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+         <!-- New & Popular Section -->
+        <section class="new-popular">
+            <h2>New & Popular</h2>
+            <div class="anime-list" id="anime-list"></div>
+                        <!-- Anime Info Pop-up -->
+            <div id="anime-info-box" class="info-popup" style="display: none;">
+                <div class="info-content">
+                    <span class=".info-button" onclick="showAnimeInfo()">✖</span>
+                    <h2 id="info-title"></h2>
+                    <p id="info-description"></p>
+                </div>
+            </div>
+            
+        </section>
+        
+    </section>
+    
+    
+                            
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist" type="text/javascript"></script>
+    <script defer src="script.js"> </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Auto Scrolling Carousel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeFlix - Netflix-style Anime Streaming</title>
+    <link rel="stylesheet" href="carousel.css">
+    <!-- Tailwind CSS with fallback -->
+    
+    <script src="https://cdn.tailwindcss.com" onerror="loadFallbackStyles()"></script>
+    <!-- Font Awesome with fallback -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts with fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style rel ="stylesheet" href= "carousel.css">   </style>
+    <script  defer src = "carousel.js"> </script>
+</head>
+<body>
+    <!-- Netflix-style Header -->
+    <section>
+        <header class="fixed top-0 w-full z-50 transition-all duration-500">
+            <div class="flex items-center justify-between px-12 py-4">
+                <div class="flex items-center">
+                    <h1 class="text-red-600 font-bold text-4xl mr-10">ANIMEFLEX</h1>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="index.html" class="hover:text-gray-300">Home</a>
+                        <a href="#" class="hover:text-gray-300 ">TV Shows</a>
+                        <a href="#" class="hover:text-gray-300">Movies</a>
+                        <a href="new_pop.html" class="hover:text-gray-300">New & Popular</a>
+                        <a href="#" class="hover:text-gray-300">My List</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search" class="bg-black bg-opacity-50 text-white px-4 py-1 rounded outline-white">
+                        <i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
+                    </div>
+                    <div class="w-8 h-8 rounded bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+    <section class=" con">
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <img src="images/W_B.1.jpg" alt="Attack on Titan">
+                <img src="images/MHA.1.jpg" alt="Naruto">
+                <img src="images/S_L.1.jpg" alt="One Piece">
+                <img src="images/One_piece.1.png" alt="Attack on Titan">
+                <img src="images/KB.1.jpg" alt="Naruto">
+                <img src="images/DN.1.jpg" alt="One Piece">
+                <img src="images/DBZ.1.jpg" alt="Attack on Titan">
+                <img src="images/Bleach.1.jpg" alt="Naruto">
+                <img src="images/B_C.1.jpg" alt="One Piece">
+            </div>
+            <div class="buttons">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="hero-content" id="hero-content">
+                <div class = "hero-content.1">
+                    <h2 id="anime-title">Attack on Titan</h2>
+                    <p id="anime-desc">As Eren and his friends fight to survive against the Titans, shocking revelations about their world come to light.</p>
+                </div>
+                <div>
+                    <div class="hero-buttons">
+                        <button class="play-button" onclick="playVideo()">▶ Play</button>
+                        <button class="info-button">ℹ More Info</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="video-container" id="video-container">
+            <span class="close-video" onclick="closeVideo()">✖</span>
+            <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+            <!-- Content Rows -->
+            <section class="relativ z-10 mt-8 px-12 pb-16">
+                <!-- Continue Watching Row -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-semibold mb-4">Continue Watching</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="anime-card">
+                            <div class="relative pb-[150%] rounded overflow-hidden group">
+                                <img src="images/Bleach.1.jpg" alt="Attack on Titan" class="absolute h-full w-full object-cover">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex flex-col justify-end p-4">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5 mb-2">
+                                        <div class="bg-red-600 h-1.5 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                    <button class="play-button opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-red-600 text-white px-4 py-2 rounded flex items-center w-full" data-id="1">
+                                        <i class="fas fa-play mr-2"></i> Continue
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More continue watching items -->
+                    </div>
+                </div>
+        
+                <!-- Popular Row -->
+                <div class="mb-12">
+                    <h3 class="text-xl font-semibold mb-4">Popular on AnimeFlix</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="anime-card">
+                            <div class="relative pb-[150%] rounded overflow-hidden group">
+                                <img src="images/Haikyuu.1.jpg" alt="Demon Slayer" class="absolute h-full w-full object-cover">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <button class="play-button opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-red-600 text-white p-3 rounded-full mb-2" data-id="2">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                        <button class="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-gray-600 bg-opacity-70 text-white p-2 rounded-full">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <h4 class="text-sm font-medium truncate">Haikyuu !!</h4>
+                                <div class="flex items-center text-xs text-gray-400 mt-1">
+                                    <span class="text-yellow-400 mr-1"><i class="fas fa-star"></i></span>
+                                    <span>4.9</span>
+                                    <span class="mx-1">•</span>
+                                    <span>TV-14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More popular anime cards -->
+                    </div>
+                </div>
+        
+                <!-- My List Row -->
+                <div id="my-list" class="mb-12">
+                    <h3 class="text-xl font-semibold mb-4">My List</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div class="anime-card">
+                            <div class="relative pb-[150%] rounded overflow-hidden group">
+                                <img src="images/JJK.1.jpg" alt="Demon Slayer" class="absolute h-full w-full object-cover">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <button class="play-button opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-red-600 text-white p-3 rounded-full mb-2" data-id="2">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                        <button class="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-gray-600 bg-opacity-70 text-white p-2 rounded-full">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <h4 class="text-sm font-medium truncate">Jujutsu Kaisan !!</h4>
+                                <div class="flex items-center text-xs text-gray-400 mt-1">
+                                    <span class="text-yellow-400 mr-1"><i class="fas fa-star"></i></span>
+                                    <span>4.9</span>
+                                    <span class="mx-1">•</span>
+                                    <span>TV-14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More popular anime cards -->
+                    </div>
+                </div>
+                </div>
+            </section>
+    </section>
+    
+                            
+    
+    <script>
+       
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist" type="text/javascript"></script>
+    <script defer src="script.js"> </script>
+</body>
+</html>
